@@ -11,12 +11,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
+    <h1>Emelies Weather App</h1>
     <div className="App">
-      <h1>Emelies Weather App</h1>
+      <div className="container">
+        <div className="weather-app-wrapper">
+          <div className="weather-app">
+            <WeatherSearch />
 
-      <WeatherSearch />
-      <Footer />
+            <br></br>
+          </div>
+        </div>
+      </div>
     </div>
+    <Footer />
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

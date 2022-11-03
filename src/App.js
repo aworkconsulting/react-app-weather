@@ -28,31 +28,27 @@ export default function WeatherSearch() {
   function updateCity(event) {
     setCity(event.target.value);
   }
-  let form = (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="search"
-        placeholder="Please enter a city"
-        onChange={updateCity}
-      />
-      <button type="Submit">Search</button>
-    </form>
-  );
-  if (loaded) {
-    return (
-      <div>
-        {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {Math.round(weather.humidity)}%</li>
-          <li>Wind: {Math.round(weather.wind)}km/h</li>
 
-          <img src={weather.icon} alt={weather.description} />
-        </ul>
-      </div>
-    );
-  } else {
-    return form;
-  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="search"
+          placeholder="Please enter a city"
+          onChange={updateCity}
+        />
+        <button type="Submit">Search</button>
+      </form>
+      <h2>
+        Stockholm {""}
+        <img src={weather.icon} alt={weather.description} />
+      </h2>
+      <ul>
+        <li>Temperature: {Math.round(weather.temperature)}°C</li>
+        <li>Description: {weather.description}</li>
+        <li>Humidity: {Math.round(weather.humidity)}%</li>
+        <li>Wind: {Math.round(weather.wind)}km/h</li>
+      </ul>
+    </div>
+  );
 }

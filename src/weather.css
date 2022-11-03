@@ -1,9 +1,9 @@
 .weather-app-wrapper {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 20px auto;
 }
 .weather-app {
-  padding: 90px;
+  padding: 100px;
   border: 2 px solid #dadde1;
   border-radius: 50px;
   background-color: #efdbf2;
@@ -66,5 +66,9 @@
   font-size: small;
 }
 h1 {
+  text-align: center;
+}
+
+footer {
   text-align: center;
 }
