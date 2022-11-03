@@ -59,8 +59,12 @@
 .weather-forecast-temperature-min {
   opacity: 0.5;
 }
+
 .source {
   text-align: center;
   display: block;
   font-size: small;
+}
+h1 {
+  text-align: center;
 }
