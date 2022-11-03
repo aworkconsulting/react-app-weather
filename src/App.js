@@ -71,7 +71,7 @@ export default function Weather() {
         <small class="source">
           {" "}
           <a
-            href="https://aworkconsulting.se/"
+            href="https://github.com/aworkconsulting/react-app-weather"
             target="_blank"
             rel="noopener noreferrer"
           >
