@@ -3,12 +3,13 @@ import axios from "axios";
 
 export default function WeatherSearch() {
   const [city, setCity] = useState("");
-  const [loaded, setLoaded] = useState(false);
+  const [load, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
 
   function showWeather(response) {
     setLoaded(true);
     setWeather({
+      cityname: response.data.name,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -28,27 +29,39 @@ export default function WeatherSearch() {
   function updateCity(event) {
     setCity(event.target.value);
   }
-
-  return (
+  let searchForm = (
     <div>
       <form onSubmit={handleSubmit}>
         <input
           type="search"
-          placeholder="Please enter a city"
+          placeholder="Enter a city…"
+          autoFocus={true}
           onChange={updateCity}
+          className="Enter-City"
         />
-        <button type="Submit">Search</button>
+        <input type="submit" value="Search" className="Weather-Search" />
       </form>
-      <h2>
-        Stockholm {""}
-        <img src={weather.icon} alt={weather.description} />
-      </h2>
-      <ul>
-        <li>Temperature: {Math.round(weather.temperature)}°C</li>
-        <li>Description: {weather.description}</li>
-        <li>Humidity: {Math.round(weather.humidity)}%</li>
-        <li>Wind: {Math.round(weather.wind)}km/h</li>
-      </ul>
     </div>
   );
+
+  if (load) {
+    return (
+      <div className="Weather">
+        {searchForm}
+        <h2>{weather.cityname} </h2>
+        <ul>
+          <li>temperature: {Math.round(weather.temperature)} °C</li>
+          <li>description: {weather.description}</li>
+          <li>humidity: {weather.humidity} %</li>
+          <li>wind: {Math.round(weather.wind)} m/s</li>
+          <li>
+            {" "}
+            <img src={weather.icon} alt={weather.description} />
+          </li>
+        </ul>
+      </div>
+    );
+  } else {
+    return searchForm;
+  }
 }
