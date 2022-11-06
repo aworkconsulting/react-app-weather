@@ -12,17 +12,7 @@ export default function Footer() {
         className="link"
       >
         {" "}
-        GitHub{" "}
-      </a>
-      and hosted on
-      <a
-        href="https://extraordinary-dango-394488.netlify.app/"
-        target="_blank"
-        rel="noreferrer"
-        className="link"
-      >
-        {" "}
-        Netlify.
+        on GitHub{" "}
       </a>
     </footer>
   );
